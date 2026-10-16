@@ -532,9 +532,6 @@ footer a{text-decoration:none}footer a:hover{color:var(--acc)}
 </main>
 <footer><div class="w"><span>Ticketo · Facturas de caja chica</span><a href="https://wa.me/528331740983">WhatsApp 833 174 0983</a></div></footer>
 <div class="mbar"><a class="btn" href="https://wa.me/528331740983?text=Hola%2C%20quiero%20probar%20la%20semana%20gratis%20de%20facturas%20de%20caja%20chica"><span>Probar gratis por WhatsApp</span></a></div>
-<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
 <script>
 (function(){
 var d=document,root=d.documentElement,h=d.querySelector("header");
@@ -667,7 +664,8 @@ function init(){
  }
  var rt;$("details").forEach(function(x){x.addEventListener("toggle",function(){clearTimeout(rt);rt=setTimeout(function(){ST.refresh()},60)})});
 }
-if(d.readyState==="loading")d.addEventListener("DOMContentLoaded",init);else init();
+function ld(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var b="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/",n=0,f=["gsap","ScrollTrigger","SplitText"];(function nx(){if(n===f.length)return init();var e=d.createElement("script");e.src=b+f[n++]+".min.js";e.onload=nx;e.onerror=function(){};d.head.appendChild(e)})()}
+if(d.readyState==="complete")ld();else addEventListener("load",ld);
 })();
 </script>
 </body></html>
